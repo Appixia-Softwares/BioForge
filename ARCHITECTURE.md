@@ -16,7 +16,7 @@ BioForge is built with a microservices architecture to ensure scalability, maint
 
 ## Architecture Diagram
 
-![Architecture Diagram](docs/images/architecture-diagram.png)
+![Architecture Diagram](architecture-diagram.tsx)
 
 ## Component Details
 
@@ -153,7 +153,10 @@ The Safety & Biocontainment service analyzes designs for safety concerns and pro
 BioForge can be deployed in various environments:
 
 1. **Development**: Docker Compose for local development
+   - Use `docker-compose.dev.yml` for development environment
+   - Use `docker-compose.yml` for production environment
 2. **Testing**: CI/CD pipeline with GitHub Actions
+   - Workflow files located in `.github/workflows/`
 3. **Production**: Kubernetes cluster for scalability and reliability
 
 ## Security Considerations
@@ -163,6 +166,7 @@ BioForge can be deployed in various environments:
 3. **Data Encryption**: HTTPS for all communications
 4. **Blockchain Security**: Private key management for blockchain transactions
 5. **Input Validation**: Pydantic models for request validation
+6. **Environment Variables**: Sensitive configuration stored in `.env` files
 
 ## Future Architecture Considerations
 
@@ -171,3 +175,5 @@ BioForge can be deployed in various environments:
 3. **Disaster Recovery**: Regular backups and recovery procedures
 4. **Performance Optimization**: Caching and database optimization
 5. **Integration**: Additional external data sources and services
+6. **Monitoring**: Prometheus and Grafana for system monitoring
+7. **Logging**: ELK stack for centralized logging

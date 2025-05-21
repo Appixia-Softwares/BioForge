@@ -5,9 +5,9 @@
   <p>Design and simulate synthetic organisms to solve global sustainability problems</p>
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-  [![GitHub Stars](https://img.shields.io/github/stars/bioforge/bioforge.svg)](https://github.com/bioforge/bioforge/stargazers)
-  [![GitHub Issues](https://img.shields.io/github/issues/bioforge/bioforge.svg)](https://github.com/bioforge/bioforge/issues)
-  [![Build Status](https://github.com/bioforge/bioforge/workflows/BioForge%20CI/CD/badge.svg)](https://github.com/bioforge/bioforge/actions)
+  [![GitHub Stars](https://img.shields.io/github/stars/Appixia-Softwares/BioForge.svg)](https://github.com/Appixia-Softwares/BioForge/stargazers)
+  [![GitHub Issues](https://img.shields.io/github/issues/Appixia-Softwares/BioForge.svg)](https://github.com/Appixia-Softwares/BioForge/issues)
+  [![Build Status](https://github.com/Appixia-Softwares/BioForge/workflows/BioForge%20CI/CD/badge.svg)](https://github.com/Appixia-Softwares/BioForge/actions)
 </div>
 
 ## 🧬 Overview
@@ -36,21 +36,21 @@ BioForge is a comprehensive open-source no-code synthetic biology platform that 
 ### Installation
 
 1. Clone the repository:
-   \`\`\`bash
-   git clone https://github.com/bioforge/bioforge.git
-   cd bioforge
-   \`\`\`
+   ```bash
+   git clone https://github.com/Appixia-Softwares/BioForge.git
+   cd BioForge
+   ```
 
 2. Set up environment variables:
-   \`\`\`bash
+   ```bash
    cp .env.example .env
    # Edit .env with your configuration
-   \`\`\`
+   ```
 
 3. Start the development environment:
-   \`\`\`bash
+   ```bash
    docker-compose -f docker-compose.dev.yml up
-   \`\`\`
+   ```
 
 4. Access the application:
    - Frontend: http://localhost:3000
@@ -61,9 +61,9 @@ BioForge is a comprehensive open-source no-code synthetic biology platform that 
 
 For production deployment, use the production Docker Compose file:
 
-\`\`\`bash
+```bash
 docker-compose up -d
-\`\`\`
+```
 
 ## 🏗️ Architecture
 
@@ -113,7 +113,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-- Project Website: [https://bioforge.org](https://bioforge.org)
-- Email: [info@bioforge.org](mailto:info@bioforge.org)
-- Twitter: [@BioForgeOrg](https://twitter.com/BioForgeOrg)
-- Discord: [Join our community](https://discord.gg/bioforge)
+- Project Website: [https://appixia-softwares.github.io/BioForge](https://appixia-softwares.github.io/BioForge)
+- Email: [info@appixia.com](mailto:info@appixia.com)
+- Twitter: [@AppixiaSoft](https://twitter.com/AppixiaSoft)
+- Discord: [Join our community](https://discord.gg/appixia)

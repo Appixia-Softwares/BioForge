@@ -4,7 +4,7 @@ First off, thank you for considering contributing to BioForge! It's people like 
 
 ## Code of Conduct
 
-By participating in this project, you are expected to uphold our [Code of Conduct](CODE_OF_CONDUCT.md). Please report unacceptable behavior to [conduct@bioforge.org](mailto:conduct@bioforge.org).
+By participating in this project, you are expected to uphold our [Code of Conduct](CODE_OF_CONDUCT.md). Please report unacceptable behavior to [conduct@appixia.com](mailto:conduct@appixia.com).
 
 ## How Can I Contribute?
 
@@ -12,7 +12,7 @@ By participating in this project, you are expected to uphold our [Code of Conduc
 
 This section guides you through submitting a bug report for BioForge. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
 
-- **Use the GitHub issue tracker** — Check if the bug has already been reported by searching on GitHub under [Issues](https://github.com/bioforge/bioforge/issues).
+- **Use the GitHub issue tracker** — Check if the bug has already been reported by searching on GitHub under [Issues](https://github.com/Appixia-Softwares/BioForge/issues).
 - **Use the bug report template** — When you create a new issue, you'll see a template for bug reports. Please fill it out completely.
 - **Include detailed information** — Include as many details as possible: which version you're using, what environment (browser, OS), steps to reproduce, expected behavior, and actual behavior.
 
@@ -20,7 +20,7 @@ This section guides you through submitting a bug report for BioForge. Following 
 
 This section guides you through submitting an enhancement suggestion for BioForge, including completely new features and minor improvements to existing functionality.
 
-- **Use the GitHub issue tracker** — Check if the enhancement has already been suggested by searching on GitHub under [Issues](https://github.com/bioforge/bioforge/issues).
+- **Use the GitHub issue tracker** — Check if the enhancement has already been suggested by searching on GitHub under [Issues](https://github.com/Appixia-Softwares/BioForge/issues).
 - **Use the feature request template** — When you create a new issue, you'll see a template for feature requests. Please fill it out completely.
 - **Describe the enhancement in detail** — Provide a clear description of what you want to happen, why it would be beneficial, and how it should work.
 
@@ -28,8 +28,8 @@ This section guides you through submitting an enhancement suggestion for BioForg
 
 Unsure where to begin contributing to BioForge? You can start by looking through these `beginner-friendly` and `help-wanted` issues:
 
-- [Beginner-friendly issues](https://github.com/bioforge/bioforge/labels/beginner-friendly) - issues which should only require a few lines of code, and a test or two.
-- [Help wanted issues](https://github.com/bioforge/bioforge/labels/help-wanted) - issues which should be a bit more involved than `beginner-friendly` issues.
+- [Beginner-friendly issues](https://github.com/Appixia-Softwares/BioForge/labels/beginner-friendly) - issues which should only require a few lines of code, and a test or two.
+- [Help wanted issues](https://github.com/Appixia-Softwares/BioForge/labels/help-wanted) - issues which should be a bit more involved than `beginner-friendly` issues.
 
 ### Pull Requests
 
@@ -153,7 +153,9 @@ npx hardhat compile
 ## Additional Resources
 
 - [Project Roadmap](docs/roadmap.md)
-- [Architecture Overview](docs/architecture.md)
+- [Architecture Overview](ARCHITECTURE.md)
 - [API Documentation](docs/api-docs.md)
+- [Development Guide](DEVELOPMENT.md)
+- [Setup Guide](SETUP.md)
 
 Thank you for your contributions!
