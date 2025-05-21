@@ -1,0 +1,105 @@
+version: '3.8'
+
+services:
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://api-gateway:8000
+      - NEXT_PUBLIC_FIREBASE_API_KEY=${NEXT_PUBLIC_FIREBASE_API_KEY}
+      - NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=${NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN}
+      - NEXT_PUBLIC_FIREBASE_PROJECT_ID=${NEXT_PUBLIC_FIREBASE_PROJECT_ID}
+      - NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET}
+      - NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=${NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID}
+      - NEXT_PUBLIC_FIREBASE_APP_ID=${NEXT_PUBLIC_FIREBASE_APP_ID}
+      - NEXT_PUBLIC_CONTRACT_ADDRESS=${NEXT_PUBLIC_CONTRACT_ADDRESS}
+    depends_on:
+      - api-gateway
+    networks:
+      - bioforge-network
+
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - FIREBASE_SERVICE_ACCOUNT_PATH=/app/firebase-service-account.json
+      - AI_SERVICE_URL=http://ai-service:8001
+      - SAFETY_SERVICE_URL=http://safety-service:8002
+      - SIMULATION_SERVICE_URL=http://simulation-service:8003
+      - DATA_PIPELINE_URL=http://data-pipelines:8004
+      - POLYGON_RPC_URL=${POLYGON_RPC_URL}
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - CONTRACT_ADDRESS=${NEXT_PUBLIC_CONTRACT_ADDRESS}
+    volumes:
+      - ./firebase-service-account.json:/app/firebase-service-account.json:ro
+    depends_on:
+      - ai-service
+      - safety-service
+      - simulation-service
+      - data-pipelines
+    networks:
+      - bioforge-network
+
+  # AI Service
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - CUDA_VISIBLE_DEVICES=0  # If using GPU
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]  # If using GPU
+    networks:
+      - bioforge-network
+
+  # Safety Service
+  safety-service:
+    build:
+      context: ./safety-service
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    networks:
+      - bioforge-network
+
+  # Simulation Service
+  simulation-service:
+    build:
+      context: ./simulation-service
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8003"
+    networks:
+      - bioforge-network
+
+  # Data Pipelines
+  data-pipelines:
+    build:
+      context: ./data-pipelines
+      dockerfile: Dockerfile
+    ports:
+      - "8004:8004"
+    environment:
+      - ENTREZ_EMAIL=${ENTREZ_EMAIL:-bioforge@example.com}
+    networks:
+      - bioforge-network
+
+networks:
+  bioforge-network:
+    driver: bridge
