@@ -20,13 +20,17 @@ This guide provides information for developers who want to contribute to the Bio
 - Docker
 - Tailwind CSS IntelliSense
 - Solidity
+- GitLens
+- Error Lens
+- Import Cost
+- Path Intellisense
 
 ### Environment Setup
 
 1. Clone the repository:
    \`\`\`bash
-   git clone https://github.com/bioforge/bioforge.git
-   cd bioforge
+   git clone https://github.com/Appixia-Softwares/BioForge.git
+   cd BioForge
    \`\`\`
 
 2. Set up environment variables:
@@ -34,7 +38,7 @@ This guide provides information for developers who want to contribute to the Bio
      \`\`\`bash
      cp .env.example .env
      \`\`\`
-   - Fill in the environment variables in the `.env` file
+   - Fill in the environment variables in the `.env` file with your configuration
 
 3. Start the development environment:
    \`\`\`bash
@@ -44,8 +48,9 @@ This guide provides information for developers who want to contribute to the Bio
 ## Project Structure
 
 \`\`\`
-bioforge/
+BioForge/
 ├── .github/                # GitHub workflows and templates
+├── app/                    # Main application
 ├── backend/                # API Gateway (FastAPI)
 │   ├── main.py             # Main application entry point
 │   ├── models/             # Data models
@@ -248,7 +253,39 @@ npx hardhat test
 - Update the documentation when you make changes
 - Use JSDoc for JavaScript/TypeScript
 - Use docstrings for Python
-- Use NatSpec for Solidity
+- Follow the [Documentation Style Guide](docs/style-guide.md)
+- Keep the [API Documentation](docs/api-docs.md) up to date
+- Update the [Architecture Documentation](ARCHITECTURE.md) for significant changes
+- Document all environment variables in `.env.example`
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Docker Issues**
+   - Ensure Docker daemon is running
+   - Check port conflicts
+   - Clear Docker cache if needed: \`docker system prune -a\`
+
+2. **Node.js Issues**
+   - Clear npm cache: \`npm cache clean --force\`
+   - Delete node_modules and reinstall: \`rm -rf node_modules && npm install\`
+
+3. **Python Issues**
+   - Create a new virtual environment
+   - Update pip: \`python -m pip install --upgrade pip\`
+   - Install requirements: \`pip install -r requirements.txt\`
+
+4. **Blockchain Issues**
+   - Ensure MetaMask is installed and configured
+   - Check network connectivity
+   - Verify contract deployment
+
+### Getting Help
+
+- Check the [GitHub Issues](https://github.com/Appixia-Softwares/BioForge/issues)
+- Join our [Discord Community](https://discord.gg/appixia)
+- Contact the development team at [dev@appixia.com](mailto:dev@appixia.com)
 
 ## Continuous Integration
 
@@ -265,28 +302,4 @@ The CI pipeline is defined in `.github/workflows/ci.yml`.
 
 ### Development
 
-\`\`\`bash
-docker-compose -f docker-compose.dev.yml up
-\`\`\`
-
-### Production
-
-\`\`\`bash
-docker-compose up -d
-\`\`\`
-
-### Kubernetes
-
-\`\`\`bash
-kubectl apply -f kubernetes/
-\`\`\`
-
-## Additional Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Documentation](https://reactjs.org/docs)
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [Solidity Documentation](https://docs.soliditylang.org/)
-- [Hardhat Documentation](https://hardhat.org/getting-started/)
-- [Docker Documentation](https://docs.docker.com/)
-- [Kubernetes Documentation](https://kubernetes.io/docs/)
+\`\`

@@ -10,13 +10,14 @@ Before you begin, ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v18 or later)
 - [Python](https://www.python.org/) (v3.9 or later)
 - [Git](https://git-scm.com/)
+- [MetaMask](https://metamask.io/) (for blockchain features)
 
 ## Environment Setup
 
 1. Clone the repository:
    \`\`\`bash
-   git clone https://github.com/bioforge/bioforge.git
-   cd bioforge
+   git clone https://github.com/Appixia-Softwares/BioForge.git
+   cd BioForge
    \`\`\`
 
 2. Create a Firebase project:
@@ -35,7 +36,9 @@ Before you begin, ensure you have the following installed:
      \`\`\`
    - Fill in the environment variables in the `.env` file:
      - Firebase configuration (from your Firebase project settings)
-     - Blockchain configuration (if you're using the blockchain features)
+     - Blockchain configuration (Polygon Mumbai testnet)
+     - AI model configuration (ESM-2 model paths)
+     - Database configuration (PostgreSQL)
 
 ## Running with Docker Compose
 
@@ -49,6 +52,10 @@ docker-compose -f docker-compose.dev.yml up
 # - Frontend: http://localhost:3000
 # - API Gateway: http://localhost:8000
 # - API Documentation: http://localhost:8000/docs
+# - AI Service: http://localhost:8001
+# - Safety Service: http://localhost:8002
+# - Simulation Service: http://localhost:8003
+# - Data Pipelines: http://localhost:8004
 \`\`\`
 
 ## Running Individual Components
@@ -148,25 +155,30 @@ npx hardhat run scripts/deploy.js --network mumbai
 1. **Docker Compose Network Issues**
    - If services can't communicate with each other, check the network configuration in `docker-compose.yml`
    - Ensure all services are on the same network
+   - Check if ports are already in use: `netstat -ano | findstr :<port>`
 
 2. **Firebase Authentication Issues**
    - Verify that your Firebase configuration is correct
    - Check that Authentication is enabled in the Firebase Console
+   - Ensure the service account key has the correct permissions
 
 3. **AI Service GPU Issues**
    - If you're using a GPU, ensure CUDA is properly installed
    - Check that the CUDA version is compatible with the PyTorch version
+   - Verify GPU memory is sufficient for the models
 
 4. **Blockchain Connection Issues**
    - Verify that your RPC URL and private key are correct
-   - Ensure you have enough test ETH/MATIC for transactions
+   - Ensure you have enough test MATIC for transactions
+   - Check MetaMask is connected to the Mumbai testnet
 
 ### Getting Help
 
 If you encounter any issues not covered here, please:
 - Check the [documentation](docs/)
-- Open an issue on GitHub
-- Reach out to the community on Discord
+- Open an issue on [GitHub](https://github.com/Appixia-Softwares/BioForge/issues)
+- Join our [Discord Community](https://discord.gg/appixia)
+- Contact the development team at [dev@appixia.com](mailto:dev@appixia.com)
 
 ## Next Steps
 
@@ -176,4 +188,4 @@ Once you have the platform running, you can:
 3. Run simulations and safety checks
 4. Mint an IP-NFT for your design
 
-For more detailed instructions, see the [User Guide](docs/user-guide.md).
+For more detailed instructions, see the [User Guide](docs/user-guide.md) and [Development Guide](DEVELOPMENT.md).
